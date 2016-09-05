@@ -7,6 +7,8 @@ import ru.sbertech.tradehouse.domain.Customer;
 import ru.sbertech.tradehouse.domain.HiTechProduct;
 import ru.sbertech.tradehouse.domain.Product;
 
+import java.util.List;
+
 /**
  * Created by anton on 8/29/16.
  */
@@ -16,9 +18,16 @@ public class Starter
         ProductManager pm = new ProductManager();
         ProductDao dao = new ProducDaoFake();
         pm.setDao(dao);
-        Product p = new Product();
-        p.setProductId(1L);
-        pm.addProduct(p);
+
+        Product product = new Product();
+        product.setProductName("ProductName 01");
+//        product.setProductId(1L);
+        pm.addProduct(product);
+
+        List<Product> result = pm.findProduct();
+        for(Product p : result) {
+            System.out.println(p.getProductName());
+        }
 
 //        CustomerManager cm = new CustomerManager();
 //        CustomerDao daoCm = new CustomerDaoImpl();
