@@ -9,10 +9,6 @@ public class ProductDaoImpl implements ProductDao
 {
     public Long addProduct(Product product) throws DaoException {
         System.out.println("Impl - метод addProduct");
-        if(false) {
-            DaoException e = new DaoException("Error", 199L);
-            throw e;
-        }
         return 99L;
     }
 

@@ -14,14 +14,16 @@ public class Starter
 {
     public static void main(String[] args) {
         ProductManager pm = new ProductManager();
-        ProductDao dao = new ProductDaoImpl();
+        ProductDao dao = new ProducDaoFake();
         pm.setDao(dao);
-        pm.addProduct(new Product());
+        Product p = new Product();
+        p.setProductId(1L);
+        pm.addProduct(p);
 
-        CustomerManager cm = new CustomerManager();
-        CustomerDao daoCm = new CustomerDaoImpl();
-        cm.setDao(daoCm);
-        cm.addCustomer(new Customer());
+//        CustomerManager cm = new CustomerManager();
+//        CustomerDao daoCm = new CustomerDaoImpl();
+//        cm.setDao(daoCm);
+//        cm.addCustomer(new Customer());
 
 //        Product p = new Product();
 //        p.setProductId(99L);

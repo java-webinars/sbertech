@@ -24,7 +24,7 @@ public class ProductManager
         } catch (DaoException de) {
             de.printStackTrace();
         } catch(Exception e) {
-
+            e.printStackTrace();
         } finally {
 
         }
