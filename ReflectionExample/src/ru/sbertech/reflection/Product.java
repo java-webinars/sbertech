@@ -1,15 +1,16 @@
-package ru.sbertech.tradehouse.domain;
+package ru.sbertech.reflection;
 
 /**
- * Created by anton on 8/29/16.
+ * Created by anton on 9/12/16.
  */
-public class Product implements Comparable<Product>
+public class Product
 {
+    static {
+        System.out.println("Static");
+    }
+
     private Long productId;
     private String productName;
-
-    public Product() {
-    }
 
     public Long getProductId() {
         return productId;
@@ -25,14 +26,5 @@ public class Product implements Comparable<Product>
 
     public void setProductName(String productName) {
         this.productName = productName;
-    }
-
-    public String toString() {
-        return productId + ":" + productName;
-    }
-
-    @Override
-    public int compareTo(Product product) {
-        return productName.compareTo(product.getProductName());
     }
 }

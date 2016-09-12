@@ -7,6 +7,9 @@ import ru.sbertech.tradehouse.domain.Customer;
 import ru.sbertech.tradehouse.domain.HiTechProduct;
 import ru.sbertech.tradehouse.domain.Product;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.List;
 
 /**
@@ -16,13 +19,14 @@ public class Starter
 {
     public static void main(String[] args) {
         ProductManager pm = new ProductManager();
-        ProductDao dao = new ProducDaoFake();
+        ProductDao dao = new ProductDaoFake2();
         pm.setDao(dao);
 
-        Product product = new Product();
-        product.setProductName("ProductName 01");
-//        product.setProductId(1L);
-        pm.addProduct(product);
+        for(int i=0; i<10; i++) {
+            Product product = new Product();
+            product.setProductName("ProductName 0" + i);
+            pm.addProduct(product);
+        }
 
         List<Product> result = pm.findProduct();
         for(Product p : result) {

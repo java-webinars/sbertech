@@ -8,8 +8,8 @@ import java.util.List;
 public interface ProductDao
 {
     Long addProduct(Product product) throws DaoException;
-    void updateProduct(Product product);
-    Product getProduct(Long productId);
-    void deleteProduct(Long productId);
-    List<Product> findProduct();
+    void updateProduct(Product product) throws DaoException;
+    Product getProduct(Long productId) throws DaoException;
+    void deleteProduct(Long productId) throws DaoException;
+    List<Product> findProduct() throws DaoException;
 }

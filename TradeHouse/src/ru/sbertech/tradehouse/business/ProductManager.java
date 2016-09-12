@@ -4,6 +4,8 @@ import ru.sbertech.tradehouse.dao.ProductDao;
 import ru.sbertech.tradehouse.domain.Product;
 import ru.sbertech.tradehouse.exception.DaoException;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -32,18 +34,36 @@ public class ProductManager
     }
 
     public void updateProduct(Product product) {
-        dao.updateProduct(product);
+        try {
+            dao.updateProduct(product);
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
     }
 
     public Product getProduct(Long productId) {
-        return dao.getProduct(productId);
+        try {
+            return dao.getProduct(productId);
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public void deleteProduct(Long productId) {
-        dao.deleteProduct(productId);
+        try {
+            dao.deleteProduct(productId);
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Product> findProduct() {
-        return dao.findProduct();
+        try {
+            return dao.findProduct();
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+        return Collections.EMPTY_LIST;
     }
  }
