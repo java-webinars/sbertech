@@ -11,6 +11,11 @@ public class Product implements Comparable<Product>
     public Product() {
     }
 
+    public Product(Long productId, String productName) {
+        this.productId = productId;
+        this.productName = productName;
+    }
+
     public Long getProductId() {
         return productId;
     }

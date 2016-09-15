@@ -1,6 +1,8 @@
 package ru.sbertech.db;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by anton on 9/12/16.
@@ -17,14 +19,21 @@ public class DbExample
 
         Connection con = DriverManager.getConnection(url, login, password);
 
-        Statement stmt = con.createStatement();
-        System.out.println(stmt.getClass().getCanonicalName());
-        int d = stmt.executeUpdate(
-                "INSERT INTO th_product (product_name) VALUES ('Product2')");
+//        Statement stmt = con.createStatement();
+//        int d = stmt.executeUpdate(
+//                "INSERT INTO th_product (product_name) VALUES ('Product2')");
+//        System.out.println(stmt.getClass().getCanonicalName());
+        PreparedStatement stmt = con.prepareStatement(
+                "INSERT INTO th_product (product_name) VALUES (?)"
+        );
+        stmt.setString(1, "Product 1");
+        stmt.executeUpdate();
         stmt.close();
 
-        Statement stmt2 = con.createStatement();
-        ResultSet rs = stmt2.executeQuery("SELECT * FROM th_product");
+        PreparedStatement stmt2 = con.prepareStatement(
+                "SELECT * FROM th_product"
+        );
+        ResultSet rs = stmt2.executeQuery();
         while(rs.next()) {
             long id = rs.getLong("product_id");
             String name = rs.getString(2);
@@ -32,6 +41,13 @@ public class DbExample
         }
         rs.close();
         stmt2.close();
+
+//        List<Product> pr = new ArrayList<>();
+        // Здесь можено добавить много продуктов
+//        for(Product g : pr) {
+//            stmt.setString(1, g.getPorductName());
+//            stmt.executeUpdate();
+//        }
 
         con.close();
     }
