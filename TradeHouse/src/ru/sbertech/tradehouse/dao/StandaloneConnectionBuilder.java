@@ -15,6 +15,7 @@ public class StandaloneConnectionBuilder implements ConnectionBuilder
             throw new RuntimeException(ex);
         }
     }
+
     @Override
     public Connection getConnection() throws Exception {
         String url = "jdbc:postgresql://localhost:5432/postgres";
