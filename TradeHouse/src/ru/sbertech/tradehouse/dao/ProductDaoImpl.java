@@ -116,4 +116,27 @@ public class ProductDaoImpl implements ProductDao {
         }
     }
 
+
+    public void test() {
+        List<B> list = new ArrayList<>();
+
+        processor(list);
+
+    }
+
+    public void processor(List<? extends A> test) {
+        for(A a : test) {
+            a.methodA();
+        }
+    }
+}
+
+
+class A extends Object {
+    public void methodA() {
+
+    }
+}
+
+class B extends A {
 }
