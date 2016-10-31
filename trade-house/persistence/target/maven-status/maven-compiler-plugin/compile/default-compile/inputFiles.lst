@@ -1,0 +1,7 @@
+/home/anton/work/sbertech/trade-house/persistence/src/main/java/ru/sbertech/tradehouse/dao/ProducDaoFake.java
+/home/anton/work/sbertech/trade-house/persistence/src/main/java/ru/sbertech/tradehouse/dao/ConnectionBuilderFactory.java
+/home/anton/work/sbertech/trade-house/persistence/src/main/java/ru/sbertech/tradehouse/dao/CustomerOrderDaoImpl.java
+/home/anton/work/sbertech/trade-house/persistence/src/main/java/ru/sbertech/tradehouse/dao/CustomerDaoImpl.java
+/home/anton/work/sbertech/trade-house/persistence/src/main/java/ru/sbertech/tradehouse/dao/StandaloneConnectionBuilder.java
+/home/anton/work/sbertech/trade-house/persistence/src/main/java/ru/sbertech/tradehouse/dao/ProductDaoFake2.java
+/home/anton/work/sbertech/trade-house/persistence/src/main/java/ru/sbertech/tradehouse/dao/ProductDaoImpl.java

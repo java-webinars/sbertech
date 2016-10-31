@@ -21,6 +21,9 @@
         <h1><%=request.getAttribute("MODEL")%> </h1>
 
         <h1>${MODEL}</h1>
+        <h1>${SESSION}</h1>
+
+        <a href="index.html">INDEX TEST</a>
 
     </body>
 </html>
