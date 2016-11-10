@@ -1,0 +1,54 @@
+Java Specification Requests
+https://jcp.org/en/jsr/all
+
+
+Persistence:
+1. JDBC
+2. Hibernate
+3. JPA - Java Persistence API
+- Hibernate
+- OpenJPA
+4. JDO - Java Data Object
+
+
+Business:
+1. Spring Framework
+2. EJB - CDI
+
+4. BPEL - jBPM, IBM Process Server
+5. BRMS - Business Rules Management System.
+IBM JRules, Drools
+
+6. Mappers
+
+
+Web:
+Задачи:
+1. Преобразование параметров в объект
+2. - Проверка корректности формата данных
+   - Корректность данных
+3. Выбор обработчика
+4. Выбор отображателя (навигация)
+
+Инструменты:
+- Админки, ERP (формы, таблицы, списки)
+1. GWT, Vaadin, ZK
+- Интерактивные формы с заголовками, картинками
+1. JSF, Wicket
+- Страница на каждое действие (многоэтапные страницы)
+1. JSF, Struts, (Velocity, FreeMarker - шаблоны) 
+- Вызов java-функций из JavaScript
+1. DWR - Direct Web Remoting
+
+
+Web-Services
+- SOAP
+- ReST
+
+- JMS
+
+
+Сопутствующие продукты:
+- Тестрование - JUnit, Mockito, Spring
+- Логирование - slf4j (log4j)
+

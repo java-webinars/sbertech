@@ -22,7 +22,7 @@ public class GetProductServlet extends HttpServlet
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String idStr = req.getParameter("productId");
-        if(idStr != null & !idStr.trim().isEmpty()) {
+        if(idStr != null && !idStr.trim().isEmpty()) {
             Long id = Long.parseLong(idStr);
             ProductManager pm = new ProductManager();
             ProductDao dao = new ProductDaoImpl();
