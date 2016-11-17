@@ -8,19 +8,29 @@ import java.sql.DriverManager;
  */
 public class StandaloneConnectionBuilder implements ConnectionBuilder
 {
-    static {
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch(Exception ex) {
-            throw new RuntimeException(ex);
-        }
+    private String driverName;
+    private String url;
+    private String login;
+    private String password;
+
+    public void setDriverName(String driverName) {
+        this.driverName = driverName;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
     public Connection getConnection() throws Exception {
-        String url = "jdbc:postgresql://localhost:5432/postgres";
-        String login = "postgres";
-        String password = "postgres";
         Connection con = DriverManager.getConnection(url, login, password);
         return con;
     }

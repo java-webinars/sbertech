@@ -10,10 +10,16 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductDaoImpl implements ProductDao {
+public class ProductDaoImpl implements ProductDao
+{
+    private ConnectionBuilder connectionBuilder;
+
+    public void setConnectionBuilder(ConnectionBuilder connectionBuilder) {
+        this.connectionBuilder = connectionBuilder;
+    }
 
     private Connection getConnection() throws Exception {
-        return ConnectionBuilderFactory.getConnectionBuilder().getConnection();
+        return connectionBuilder.getConnection();
     }
 
     public Long addProduct(Product product) throws DaoException {

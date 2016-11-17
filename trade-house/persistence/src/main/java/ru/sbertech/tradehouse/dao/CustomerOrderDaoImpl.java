@@ -14,12 +14,14 @@ import java.sql.Timestamp;
  */
 public class CustomerOrderDaoImpl implements CustomerOrderDao
 {
-    private Connection getConnection() throws DaoException {
-        try {
-            return ConnectionBuilderFactory.getConnectionBuilder().getConnection();
-        } catch (Exception ex) {
-            throw new DaoException(ex.getMessage(), 3L);
-        }
+    private ConnectionBuilder connectionBuilder;
+
+    public void setConnectionBuilder(ConnectionBuilder connectionBuilder) {
+        this.connectionBuilder = connectionBuilder;
+    }
+
+    private Connection getConnection() throws Exception {
+        return connectionBuilder.getConnection();
     }
 
     @Override
