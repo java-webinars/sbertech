@@ -1,0 +1,63 @@
+1. Logging
+slf4j - Simple Logging Framework
+
+Java logging 
+log4j
+
+all
+trace
+debug
+info
+warn
+error
+off
+
+Example: trade-houss\business
+
+
+2. Unit-test
+- init() - mock
+- execute
+- check
+  - state
+  - algorithm
+- dispose
+
+JMeter
+
+3. Web-Services SOAP, ReST
+- SOAP
+   - WSDL - Web Service Definition Language
+   - JAXB
+  Tool - SoapUI
+
+- ReST
+Path - URI = URL + URN
+
+Jersey
+
+
+SQL         HTTP
+SELECT   -  GET
+INSERT   -  PUT
+UPDATE   -  POST
+DELETE   -  DELETE
+
+
+
+
+
+adfgsjdfgsdjfhgsd/rs/
+
+
+GET /client?id=19  HTTP/1.1
+
+
+POST /client HTTP/1.1
+Content-legth:25
+
+{
+  name: Andrey,
+  last_name: Sobolev
+}
+
