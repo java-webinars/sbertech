@@ -52,6 +52,7 @@ public class CreditProcessor
         }
         Person spouse = zagsRegistry.getSpouse(person);
         if(spouse != null) {
+            zagsRegistry.getChildren(person);
             if(bankingSystem.checkLoan(spouse)) {
                 messageSystem.sendDeny(person);
                 return;

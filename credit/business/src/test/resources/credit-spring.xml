@@ -8,11 +8,17 @@
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="classpath:test.properties"/>
+    </bean>
+
     <bean id="bankingSystem" class="ru.sbertech.credit.api.impl.BankingSystemImpl"/>
     <bean id="cityPersonRegistry" class="ru.sbertech.credit.api.impl.CityPersonRegistryImpl"/>
     <bean id="messageRegister" class="ru.sbertech.credit.api.impl.MessageRegisterImpl"/>
     <bean id="messageSystem" class="ru.sbertech.credit.api.impl.MessageSystemImpl"/>
-    <bean id="zagsRegistry" class="ru.sbertech.credit.api.impl.ZagsRegistryImpl"/>
+    <bean id="zagsRegistry" class="ru.sbertech.credit.api.impl.ZagsRegistryImpl">
+        <property name="testValue1" value="${test.testValue1}"/>
+    </bean>
 
     <bean id="creditProcessor" class="ru.sbertech.credit.business.CreditProcessor">
         <property name="bankingSystem" ref="bankingSystem"/>
