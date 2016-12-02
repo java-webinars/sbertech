@@ -1,5 +1,7 @@
 package ru.sbertech.credit.business;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.sbertech.credit.api.*;
@@ -10,6 +12,8 @@ import ru.sbertech.credit.domain.Person;
  */
 public class CreditProcessor
 {
+    private static final Logger log = LoggerFactory.getLogger(CreditProcessor.class);
+
     private MessageRegister messageRegister;
     private CityPersonRegistry cityPersonRegistry;
     private ZagsRegistry zagsRegistry;
@@ -37,7 +41,7 @@ public class CreditProcessor
     }
 
     public void processPerson(Person person) {
-        messageRegister.savePerson(person);
+        Long id = messageRegister.savePerson(person);
         if(!cityPersonRegistry.checkPerson(person)) {
             messageSystem.sendDeny(person);
             return;
@@ -57,12 +61,4 @@ public class CreditProcessor
         messageSystem.sendApprove(person);
     }
 
-    public static void main(String[] args) {
-        ApplicationContext context =
-                new ClassPathXmlApplicationContext(new String[]{"credit-spring.xml"});
-
-        CreditProcessor cp = context.getBean("creditProcessor", CreditProcessor.class);
-        cp.processPerson(new Person());
-
-    }
 }

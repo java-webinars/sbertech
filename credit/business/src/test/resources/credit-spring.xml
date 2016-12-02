@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <bean id="bankingSystem" class="ru.sbertech.credit.api.impl.BankingSystemImpl"/>
+    <bean id="cityPersonRegistry" class="ru.sbertech.credit.api.impl.CityPersonRegistryImpl"/>
+    <bean id="messageRegister" class="ru.sbertech.credit.api.impl.MessageRegisterImpl"/>
+    <bean id="messageSystem" class="ru.sbertech.credit.api.impl.MessageSystemImpl"/>
+    <bean id="zagsRegistry" class="ru.sbertech.credit.api.impl.ZagsRegistryImpl"/>
+
+    <bean id="creditProcessor" class="ru.sbertech.credit.business.CreditProcessor">
+        <property name="bankingSystem" ref="bankingSystem"/>
+        <property name="cityPersonRegistry" ref="cityPersonRegistry"/>
+        <property name="messageRegister" ref="messageRegister"/>
+        <property name="messageSystem" ref="messageSystem"/>
+        <property name="zagsRegistry" ref="zagsRegistry"/>
+    </bean>
+
+</beans>
