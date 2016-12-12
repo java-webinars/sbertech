@@ -1,23 +1,33 @@
 package ru.sbertech.credit.business;
 
+import com.sun.org.apache.xpath.internal.patterns.ContextMatchStepPattern;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 import ru.sbertech.credit.api.*;
+import ru.sbertech.credit.api.impl.ZagsRegistryImpl;
 import ru.sbertech.credit.domain.Person;
 
-/**
- * Created by anton on 12/1/16.
- */
+@Component
 public class CreditProcessor
 {
     private static final Logger log = LoggerFactory.getLogger(CreditProcessor.class);
 
+    @Autowired
     private MessageRegister messageRegister;
+    @Autowired
     private CityPersonRegistry cityPersonRegistry;
+    @Autowired
+    @Qualifier(value = "zags")
     private ZagsRegistry zagsRegistry;
+    @Autowired
     private BankingSystem bankingSystem;
+    @Autowired
     private MessageSystem messageSystem;
 
     public void setMessageRegister(MessageRegister messageRegister) {
@@ -61,5 +71,13 @@ public class CreditProcessor
         bankingSystem.approveLoan(person);
         messageSystem.sendApprove(person);
     }
+
+//    public static void main(String[] args) {
+//        ClassPathXmlApplicationContext ctx =
+//                new ClassPathXmlApplicationContext("credit-spring.xml");
+//
+//        CreditProcessor cp = ctx.getBean(CreditProcessor.class);
+//        cp.processPerson(new Person());
+//    }
 
 }

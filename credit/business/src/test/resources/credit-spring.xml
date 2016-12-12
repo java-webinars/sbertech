@@ -12,20 +12,21 @@
         <property name="locations" value="classpath:test.properties"/>
     </bean>
 
-    <bean id="bankingSystem" class="ru.sbertech.credit.api.impl.BankingSystemImpl"/>
-    <bean id="cityPersonRegistry" class="ru.sbertech.credit.api.impl.CityPersonRegistryImpl"/>
-    <bean id="messageRegister" class="ru.sbertech.credit.api.impl.MessageRegisterImpl"/>
-    <bean id="messageSystem" class="ru.sbertech.credit.api.impl.MessageSystemImpl"/>
-    <bean id="zagsRegistry" class="ru.sbertech.credit.api.impl.ZagsRegistryImpl">
-        <property name="testValue1" value="${test.testValue1}"/>
-    </bean>
+    <context:component-scan base-package="ru.sbertech.credit.api.impl"/>
+    <context:component-scan base-package="ru.sbertech.credit.business"/>
 
-    <bean id="creditProcessor" class="ru.sbertech.credit.business.CreditProcessor">
-        <property name="bankingSystem" ref="bankingSystem"/>
-        <property name="cityPersonRegistry" ref="cityPersonRegistry"/>
-        <property name="messageRegister" ref="messageRegister"/>
-        <property name="messageSystem" ref="messageSystem"/>
-        <property name="zagsRegistry" ref="zagsRegistry"/>
-    </bean>
+    <!--<bean id="bankingSystem" class="ru.sbertech.credit.api.impl.BankingSystemImpl"/>-->
+    <!--<bean id="cityPersonRegistry" class="ru.sbertech.credit.api.impl.CityPersonRegistryImpl"/>-->
+    <!--<bean id="messageRegister" class="ru.sbertech.credit.api.impl.MessageRegisterImpl"/>-->
+    <!--<bean id="messageSystem" class="ru.sbertech.credit.api.impl.MessageSystemImpl"/>-->
+    <!--<bean id="zagsRegistry" class="ru.sbertech.credit.api.impl.ZagsRegistryImpl"/>-->
+
+    <!--<bean id="creditProcessor" class="ru.sbertech.credit.business.CreditProcessor">-->
+    <!--<property name="bankingSystem" ref="bankingSystem"/>-->
+    <!--<property name="cityPersonRegistry" ref="cityPersonRegistry"/>-->
+    <!--<property name="messageRegister" ref="messageRegister"/>-->
+    <!--<property name="messageSystem" ref="messageSystem"/>-->
+    <!--<property name="zagsRegistry" ref="zagsRegistry"/>-->
+    <!--</bean>-->
 
 </beans>

@@ -2,12 +2,11 @@ package ru.sbertech.credit.api.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import ru.sbertech.credit.api.BankingSystem;
 import ru.sbertech.credit.domain.Person;
 
-/**
- * Created by anton on 12/1/16.
- */
+@Component
 public class BankingSystemImpl implements BankingSystem
 {
     private static final Logger log = LoggerFactory.getLogger(BankingSystemImpl.class);
