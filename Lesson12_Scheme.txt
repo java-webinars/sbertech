@@ -2,6 +2,7 @@ Java Specification Requests
 https://jcp.org/en/jsr/all
 
 
+
 Persistence:
 1. JDBC
 2. Hibernate
